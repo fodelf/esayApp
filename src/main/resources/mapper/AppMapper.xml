@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easyApp.dao.AppDao">
+
+
+
+<select id ="queryAppListByUserId" parameterType="map" resultType="app">
+			SELECT  *  FROM em_applist 
+			where user_id = #{userId}
+			
+			<if test="limit != null">
+			    <if test="offset != null">
+			      limit ${offset}, ${limit}
+			    </if>
+			    <if test="offset == null">
+			      limit ${limit}
+			    </if>
+			</if>
+  				
+   </select>
+
+  <resultMap id="app" type="com.easyApp.entity.App">
+    <!--
+      WARNING - @mbg.generated
+      
+      private int appId;
+	private int userId;
+	private String appDec;
+	private String appUrl;
+	private Date appCreateTime;
+    -->
+    <result column="app_id" jdbcType="INTEGER" property="appId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="app_dec" jdbcType="VARCHAR" property="appDec" />
+    <result column="app_url" jdbcType="VARCHAR" property="appUrl" />
+    <result column="app_createTime" jdbcType="DATE" property="appCreateTime" />
+  </resultMap>
+</mapper>
