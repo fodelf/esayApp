@@ -4,9 +4,9 @@ spring:
   application:
     name: zuul1
   datasource:
-    url: jdbc:mysql://116.85.15.199:3306/easymarket?useUnicode=true&characterEncoding=utf8
+    url: xx
     username: root
-    password:  2wer43@WER$#
+    password:  xxx
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
